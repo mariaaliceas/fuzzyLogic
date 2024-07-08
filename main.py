@@ -3,13 +3,13 @@ from matplotlib import pyplot # type: ignore
 import numpy
 
 # variaveis antecedentes
-avaliacao_hotel = control.Antecedent(numpy.arange(1, 6, 1), "avaliacao_hotel")
-proximidade_atracoes = control.Antecedent(numpy.arange(10, 2001, 100), "proximidade_atracoes")
-preco_noite = control.Antecedent(numpy.arange(100, 5001, 10), "preco_noite")
-facilidades_hotel = control.Antecedent(numpy.arange(1, 11, 1), "facilidades_hotel")
+avaliacao_hotel = control.Antecedent(numpy.arange(1, 5, 1), "avaliacao_hotel")
+proximidade_atracoes = control.Antecedent(numpy.arange(10, 2000, 100), "proximidade_atracoes")
+preco_noite = control.Antecedent(numpy.arange(100, 5000, 10), "preco_noite")
+facilidades_hotel = control.Antecedent(numpy.arange(1, 10, 1), "facilidades_hotel")
 
 # variavel consequente
-satisfacao_hospede = control.Consequent(numpy.arange(1, 11, 1), "satisfacao_hospede")
+satisfacao_hospede = control.Consequent(numpy.arange(1, 10, 1), "satisfacao_hospede")
 
 # funcoes de pertinencia (membership)
 avaliacao_hotel.automf(number=3, names=["baixa", "media", "alta"])
