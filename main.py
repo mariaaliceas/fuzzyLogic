@@ -110,15 +110,64 @@ regras = [
     control.Rule(
         avaliacao_hotel["alta"] & proximidade_atracoes["perto"] & preco_noite["baixo"] & facilidades_hotel["muitas"],
         satisfacao_hospede["alta"],
-    )
+    ),
+    # novas regras aqui em baixo
+    control.Rule(
+        avaliacao_hotel["baixa"] & proximidade_atracoes["longe"] & preco_noite["alto"] & facilidades_hotel["poucas"],
+        satisfacao_hospede["baixa"],
+    ),
+    control.Rule(
+        avaliacao_hotel["media"] & proximidade_atracoes["medio"] & preco_noite["alto"] & facilidades_hotel["moderadas"],
+        satisfacao_hospede["media"],
+    ),
+    control.Rule(
+        avaliacao_hotel["alta"] & proximidade_atracoes["medio"] & preco_noite["baixo"] & facilidades_hotel["moderadas"],
+        satisfacao_hospede["alta"],
+    ),
+    control.Rule(
+        avaliacao_hotel["baixa"] & proximidade_atracoes["perto"] & preco_noite["medio"] & facilidades_hotel["poucas"],
+        satisfacao_hospede["baixa"],
+    ),
+    control.Rule(
+        avaliacao_hotel["media"] & proximidade_atracoes["perto"] & preco_noite["baixo"] & facilidades_hotel["muitas"],
+        satisfacao_hospede["alta"],
+    ),
+    control.Rule(
+        avaliacao_hotel["alta"] & proximidade_atracoes["longe"] & preco_noite["medio"] & facilidades_hotel["poucas"],
+        satisfacao_hospede["media"],
+    ),
+    control.Rule(
+        avaliacao_hotel["media"] & proximidade_atracoes["perto"] & preco_noite["medio"] & facilidades_hotel["poucas"],
+        satisfacao_hospede["media"],
+    ),
+    control.Rule(
+        avaliacao_hotel["alta"] & proximidade_atracoes["longe"] & preco_noite["medio"] & facilidades_hotel["muitas"],
+        satisfacao_hospede["media"],
+    ),
+    control.Rule(
+        avaliacao_hotel["baixa"] & proximidade_atracoes["medio"] & preco_noite["alto"] & facilidades_hotel["muitas"],
+        satisfacao_hospede["baixa"],
+    ),
+    control.Rule(
+        avaliacao_hotel["media"] & proximidade_atracoes["perto"] & preco_noite["alto"] & facilidades_hotel["moderadas"],
+        satisfacao_hospede["media"],
+    ),
 ]
+
 
 testes = [
     {'avaliacao_hotel': 3, 'proximidade_atracoes': 500, 'preco_noite': 1800, 'facilidades_hotel': 9},
     {'avaliacao_hotel': 5, 'proximidade_atracoes': 910, 'preco_noite': 4500, 'facilidades_hotel': 2},
     {'avaliacao_hotel': 5, 'proximidade_atracoes': 10, 'preco_noite': 100, 'facilidades_hotel': 10},
     {'avaliacao_hotel': 1, 'proximidade_atracoes': 1500, 'preco_noite': 200, 'facilidades_hotel': 7},
+    # coloquei novos casos de testes daqui pra baixo
+    {'avaliacao_hotel': 4, 'proximidade_atracoes': 300, 'preco_noite': 1200, 'facilidades_hotel': 5},
+    {'avaliacao_hotel': 2, 'proximidade_atracoes': 2000, 'preco_noite': 1500, 'facilidades_hotel': 8},
+    {'avaliacao_hotel': 3, 'proximidade_atracoes': 750, 'preco_noite': 900, 'facilidades_hotel': 6},
+    {'avaliacao_hotel': 5, 'proximidade_atracoes': 50, 'preco_noite': 3000, 'facilidades_hotel': 3},
+    {'avaliacao_hotel': 1, 'proximidade_atracoes': 1000, 'preco_noite': 500, 'facilidades_hotel': 4},
 ]
+
 
 simulacao = control.ControlSystemSimulation(control.ControlSystem(regras))
 
